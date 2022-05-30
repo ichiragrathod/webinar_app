@@ -5,3 +5,42 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+puts "Workshops are being created."
+
+workshops= Workshop.create([
+  {
+    name:"Ruby On Rails Development.",
+    description:"This is Full Stack Web Development Cource.",
+    start_date:Date.today + 2.days,
+    end_date:Date.today + 9.days,
+    start_time: "10:00 AM",
+    end_time: "3:00 PM",
+    total_sits: 100,
+    remaining_sits:0,
+    registration_fee:1500
+  },
+  {
+    name:"Flutter App Development.",
+    description:"This is Mobile App Development Cource.",
+    start_date:Date.today + 3.days,
+    end_date:Date.today + 9.days,
+    start_time: "10:00 AM",
+    end_time: "3:00 PM",
+    total_sits: 100,
+    remaining_sits:0,
+    registration_fee:1800
+  },
+  {
+    name:"Java Spring Boot Development.",
+    description:"This is Web Development Cource.",
+    start_date:Date.today + 1.days,
+    end_date:Date.today + 15.days,
+    start_time: "10:00 AM",
+    end_time: "3:00 PM",
+    total_sits: 100,
+    remaining_sits:0,
+    registration_fee:1500
+  }
+])
+
+puts "Workshop created."
