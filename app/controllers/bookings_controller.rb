@@ -20,6 +20,8 @@ class BookingsController < ApplicationController
     )
     BookingsMailer.booking_confirmation(@booking).deliver_now
     redirect_to workshop_path(@workshop), notice: 'Your tickets has been booked'
+  rescue Stripe::StripeError => error
+    redirect_to workshop_path(@workshop), alert: "#{error.message}"
   end
 
   private
