@@ -75,5 +75,4 @@ workshops= Workshop.create([
     registration_fee:1500
   }
 ])
-
 puts "Workshop created."

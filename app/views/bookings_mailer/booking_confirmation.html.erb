@@ -6,6 +6,7 @@
     <div class="card-body">
       <h1>Greetings form webinar</h1>
       <h3>Hello <%= @customer.full_name %> </h3>
+      <h4>Here is your booking id: <%= @booking.order_number %>. This booking id is unique per order and will be required for requesting refunds in case if you wish to cancel booking.</h4>
       <p class="lead">Your booking for <strong> <%= @workshop.name %> has been confirmed. Please find the booking details below.</strong> </p>
     </div>
     <%= @svg.html_safe%>

@@ -12,14 +12,19 @@ class BookingsController < ApplicationController
     @amount_to_be_paid = params[:no_of_tickets].to_i * @workshop.registration_fee
     @charge = @stripe_service.create_stripe_charge(@amount_to_be_paid, @stripe_customer.id, @card.id, @workshop)
     
-    @booking = @workshop.bookings.create(
+    @booking = @workshop.bookings.new(
       customer_id: @customer.id,
       stripe_transaction_id: @charge.id,
       no_of_tickets: params[:no_of_tickets].to_i,
       amount_paid: @amount_to_be_paid
     )
-    BookingsMailer.booking_confirmation(@booking).deliver_now
-    redirect_to workshop_path(@workshop), notice: 'Your tickets has been booked'
+    if @booking.save 
+      BookingsMailer.booking_confirmation(@booking).deliver_now
+      redirect_to workshop_path(@workshop), notice: 'Your tickets has been booked'
+    else
+      @stripe_service.create_stripe_refund(@charge.id)
+      redirect_to workshop_path(@workshop), notice: 'Something went wrong! your money will refunded shortly'
+    end
   rescue Stripe::StripeError => error
     redirect_to workshop_path(@workshop), alert: "#{error.message}"
   end
@@ -28,6 +33,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  
   private
   def customer_params 
     params.permit(:full_name, :contact_number, :email)
