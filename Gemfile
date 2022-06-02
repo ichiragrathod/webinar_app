@@ -77,3 +77,4 @@ gem 'cssbundling-rails'
 gem 'stripe'
 gem "rqrcode"
 gem 'friendly_id'
+gem 'devise'
