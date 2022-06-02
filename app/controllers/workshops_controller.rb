@@ -3,6 +3,6 @@ class WorkshopsController < ApplicationController
     @workshops = Workshop.upcoming_workshops 
   end
   def show 
-    @workshop = Workshop.find(params[:id])
+    @workshop = Workshop.friendly.find(params[:id])
   end
 end
