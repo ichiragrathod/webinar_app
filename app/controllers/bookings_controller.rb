@@ -24,6 +24,10 @@ class BookingsController < ApplicationController
     redirect_to workshop_path(@workshop), alert: "#{error.message}"
   end
 
+  def booking_details
+    @booking = Booking.find(params[:id])
+  end
+
   private
   def customer_params 
     params.permit(:full_name, :contact_number, :email)

@@ -40,6 +40,39 @@ workshops= Workshop.create([
     total_sits: 100,
     remaining_sits:0,
     registration_fee:1500
+  },
+  {
+    name:"Ruby Programming.",
+    description:"This is Full Stack Web Development Cource.",
+    start_date:"2022-01-01",
+    end_date:"2022-01-05",
+    start_time: "10:00 AM",
+    end_time: "3:00 PM",
+    total_sits: 100,
+    remaining_sits:0,
+    registration_fee:1500
+  },
+  {
+    name:"Machine Learning.",
+    description:"This is Mobile App Development Cource.",
+    start_date:"2022-02-01",
+    end_date:"2022-02-05",
+    start_time: "10:00 AM",
+    end_time: "3:00 PM",
+    total_sits: 100,
+    remaining_sits:0,
+    registration_fee:1800
+  },
+  {
+    name:"IOT App Development.",
+    description:"This is Web Development Cource.",
+    start_date:"2022-02-10",
+    end_date:"2022-02-15",
+    start_time: "10:00 AM",
+    end_time: "3:00 PM",
+    total_sits: 100,
+    remaining_sits:0,
+    registration_fee:1500
   }
 ])
 
